@@ -39,7 +39,7 @@
   <section class="section" style="padding-top:64px">
     <div class="wrap" style="max-width:720px">
       <div class="eyebrow" style="margin-bottom:16px">Warp Ecological Momentary Assessment</div>
-      <h1 style="font-size:38px;margin-bottom:12px">SMS signup for Warp EMAs</h1>
+      <h1 style="font-size:38px;margin-bottom:12px">Signup for Warp EMAs</h1>
       <p class="section-intro" style="margin-bottom:32px">Enter your email and mobile phone number to receive your Warp EMA links. Providing a mobile number is optional; you can complete the study through an alternative method arranged with your research team.</p>
       <hr class="signal-rule" style="margin-bottom:36px">
 
@@ -47,12 +47,12 @@
         <input type="hidden" name="form-name" value="warp-ema-signup">
         <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
 
-        <div class="field"><label for="w-name">Name <span style="color:var(--muted);font-weight:500">(optional)</span></label><input id="w-name" type="text" name="name"></div>
+        <div class="field"><label for="w-name">Name <span class="req">*</span></label><input id="w-name" type="text" name="name" required></div>
         <div class="field"><label for="w-email">Email <span class="req">*</span></label><input id="w-email" type="email" name="email" required></div>
-        <div class="field"><label for="w-phone">Mobile phone number <span class="req">*</span></label><input id="w-phone" type="tel" name="mobile-phone" inputmode="tel" placeholder="+1 (555) 000-0000" required></div>
+        <div class="field"><label for="w-phone">Mobile phone number <span class="req" id="w-phone-req" hidden>*</span></label><input id="w-phone" type="tel" name="mobile-phone" inputmode="tel" placeholder="+1 (555) 000-0000"></div>
 
         <div class="consent">
-          <input id="w-consent" type="checkbox" name="sms-consent" value="agreed" required>
+          <input id="w-consent" type="checkbox" name="sms-consent" value="agreed">
           <label for="w-consent">I agree to receive automated SMS messages from the <strong>Warp EMA Service</strong> (assessment links and study updates). Consent is <strong>not required</strong> to participate in the study. Message frequency varies by protocol; message &amp; data rates may apply. Reply <strong>STOP</strong> to unsubscribe or <strong>HELP</strong> for assistance at any time.</label>
         </div>
 
@@ -63,6 +63,21 @@
     </div>
   </section>
 </main>
+
+<script>
+(function(){
+  var consent=document.getElementById('w-consent');
+  var phone=document.getElementById('w-phone');
+  var star=document.getElementById('w-phone-req');
+  function sync(){
+    var on=consent.checked;
+    phone.required=on;
+    star.hidden=!on;
+  }
+  consent.addEventListener('change',sync);
+  sync();
+})();
+</script>
 
 <footer class="site-footer">
   <div class="wrap">
