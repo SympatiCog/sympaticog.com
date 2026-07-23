@@ -1,7 +1,7 @@
 # SympatiCog.com
 
 Static marketing site for SympatiCog, built in the **Light Signal** design system.
-No build step — plain HTML + one stylesheet.
+No build step. Plain HTML + one stylesheet.
 
 ## Files
 ```
@@ -21,9 +21,9 @@ favicon.svg                     Signal-mark favicon
 5. Point the `sympaticog.com` domain at Netlify (Netlify DNS or an ALIAS/A record) and remove it from GoDaddy hosting.
 
 ## Forms (Netlify Forms)
-Both forms are wired for Netlify Forms — no backend needed:
-- `contact` — landing-page contact form
-- `warp-ema-signup` — SMS signup, incl. the `sms-consent` checkbox
+Both forms are wired for Netlify Forms (no backend needed):
+- `contact`: landing-page contact form
+- `warp-ema-signup`: SMS signup, incl. the `sms-consent` checkbox
 
 Netlify auto-detects them on first deploy. Submissions appear under **Site → Forms**.
 Set up notification emails there (Netlify → Forms → Settings & notifications).
@@ -32,5 +32,5 @@ A honeypot field (`bot-field`) is included for spam; add reCAPTCHA in Netlify if
 ## Notes
 - The opt-in SMS checkbox is **unchecked by default** and **required** to submit the signup
   (affirmative express consent, TCPA-friendly). Consent is not required to participate in the
-  study — that's stated on the page, in the Terms, and in the Privacy Policy.
+  study; that's stated on the page, in the Terms, and in the Privacy Policy.
 - Fonts load from Google Fonts (Archivo, JetBrains Mono, Montserrat).
